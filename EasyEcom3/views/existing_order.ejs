@@ -1,0 +1,73 @@
+<!-- <%- include('../_layouts/header.ejs')%> 
+
+<div class="container">
+    <h4>Order Id : {{order.orderId}}</h4>
+    <h4>Order Date : {{order.date}}</h4>
+    <h4>Order Time : {{order.time}} </h4>
+<h4>Order ID : </h4>
+
+    <div class="row">
+        {{#each order.products}}
+
+        <div class="col-xs-6 col-md-4 img-container">
+            <img class="img-responsive inline-block img-thumbnail" src="{{this.imagePath}}" />
+
+            <div class="caption">
+                <h5>Title: {{this.title}}</h5>
+                <p>Quantity: {{this.quantity}}</p>
+                <p>Price: Rs {{this.total_product_price}}</p>
+                </div>
+        </div>
+        {{/each}}
+    </div>
+    <div>
+        <h4>Order Status: Yet to ship{{order.status}} </h4>
+    </div>
+    <div>
+    <h3>Your Total Price is: Rs {{order.total_price}}</h3>
+        </br>
+        <a class="btn btn-primary" href="/" role="button">Continue Shopping</a>
+    </div>
+    </br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{{>footer}} -->
+
+
+
+
+<div class="row">
+    <!--Middle Part Start-->
+    <div id="content" class="col-sm-12">
+      <h1 class="title">Orders</h1>
+      <% for(i=0; i<orders.length; i++){ %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+  
+            <ul class="list-group">
+  
+              <% for (p in orders[i].cart) { %>
+                <li class="list-group-item">
+                  <span class=''><%= orders[i].cart[p].item.name  %>   quantity:<%= orders[i].cart[p].qty  %>   Unit Price:<%= orders[i].cart[p].item.price  %>
+                      Total Price :<%= orders[i].cart[p].price  %></span>
+              </li>
+            <% } %>
+  
+              </ul>
+        </div>
+        <div class="panel-footer">
+          <a><span>Status : <span><%= orders[i].status  %> </div>
+      </div>
+    <% } %>
+  
+    </div>
+    <!--Middle Part End -->
+  </div>
